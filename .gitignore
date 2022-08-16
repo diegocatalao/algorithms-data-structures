@@ -37,6 +37,7 @@
 *.hex
 bin/
 lib/
+build/
 
 # Debug files
 *.dSYM/
