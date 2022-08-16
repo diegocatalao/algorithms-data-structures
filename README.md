@@ -2,6 +2,8 @@
 
 Algorithms and Data Structures in C
 
+![](./assets/docs/turing-machine.jpg)
+
 ## Installing dependencies
 
 ```
