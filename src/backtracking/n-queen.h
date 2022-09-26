@@ -11,13 +11,35 @@
 
 #define MAX(x, y) ((x > y) ? x : y)
 #define MIN(x, y) ((x < y) ? x : y)
-
 typedef unsigned int bool;
 
-bool has_collision(int **board, int board_size, int x, int y);
+/**
+ * @brief Detect collision diagonally left up and left down
+ *
+ * @param board {vector} - board matrix (multidimentional array)
+ * @param size_b {int} - board size
+ * @param x {int} - row position
+ * @param y {int} - column position
+ * @return {bool} - true if has collision and false if not
+ */
+bool has_collision(int **board, int size_b, int x, int y);
 
-bool solve_queen(int **board, int board_size, int column);
+/**
+ * @brief
+ *
+ * @param board {vector} - board matrix (multidimentional array)
+ * @param size_b {int} - board size
+ * @param column {int} - column number
+ * @return {bool} - true if is a valid board and false if not
+ */
+bool solve_queen(int **board, int size_b, int column);
 
-void printf_board(int **board, int board_size);
+/**
+ * @brief Board pretty print
+ *
+ * @param board {vector} - board matrix (multidimentional array)
+ * @param size_b {int} - board size
+ */
+void printf_board(int **board, int size_b);
 
 #endif

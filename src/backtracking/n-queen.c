@@ -2,77 +2,66 @@
 
 int main(void) {
   int **board;
-  int board_size = 0;
+  int size_b = 0;
 
+  /* request user board size */
   printf("Insert the board size (> 0): ");
-  scanf("%d", &board_size);
+  scanf("%d", &size_b);
 
-  if (board_size <= 0) {
-    assert(!(board_size <= 0) && "Invalid board size!");
+  if (size_b <= 0) {
+    assert(!(size_b <= 0) && "Invalid board size!");
   }
 
-  board = (int **)malloc(sizeof(int *) * board_size);
-  for (int irow = 0; irow < board_size; irow++) {
-	board[irow] = (int *)malloc(sizeof(int) * board_size);
+  /* create board dynamically */
+  board = (int **)malloc(sizeof(int *) * size_b);
+  for (int irow = 0; irow < size_b; irow++) {
+    board[irow] = (int *)malloc(sizeof(int) * size_b);
   }
 
-  // solve_queen(board, board_size, 0);
-
-  board[2][1] = 1;
-  board[3][0] = 1;
-
-  printf_board(board, board_size);
-
-  printf("%d\n", has_collision(board, board_size, 2, 1));
-  printf("%d\n", has_collision(board, board_size, 3, 0));
+  /* show queen possibles boards */
+  solve_queen(board, size_b, 0);
 
   return EXIT_SUCCESS;
 }
 
-bool has_collision(int **board, int board_size, int x, int y) {
-  int wally = 0;
-  int wallx = 0;
+bool has_collision(int **board, int size_b, int x, int y) {
+  int xpos, ypos;
+
   // detect collision same column
-  for (int xpos = 0; xpos < board_size; xpos++) {
+  for (xpos = 0; xpos < x; xpos++) {
     if (board[xpos][y] == 1 && xpos != x) return true;
   }
+
   // detect collision same row
-  for (int ypos = 0; ypos < board_size; ypos++) {
+  for (ypos = 0; ypos < y; ypos++) {
     if (board[x][ypos] == 1 && ypos != y) return true;
   }
-  // detect collision diagonal left
-  wallx = x >= y ? x - y : 0;
-  wally = x >= y ? 0 : y - x;
-  for (wallx; wallx < board_size; wallx++, wally++) {
-    if (board[wallx][wally] == 1 && wallx != x && wally != y) return true;
-    if (wally > board_size) break;
+
+  // detect collision diagonal left up
+  for (xpos = x, ypos = y; xpos >= 0 && ypos >= 0; xpos--, ypos--) {
+    if (board[xpos][ypos] == 1 && xpos != x && ypos != y) return true;
   }
-  // detect collision diagonal right
-  wally = MIN(x + y, board_size - 1);
-  wallx = MIN(x + y, board_size - 1);
-  for (wally; wally < 0; wally--) {
-    if (board[wally][wally] == 1 && wally != x)
-      if (wally < 0) break;
-    printf("%d, %d\n", wallx, wally);
+
+  // detect collision diagonal left down
+  for (xpos = x, ypos = y; xpos < size_b && ypos >= 0; xpos++, ypos--) {
+    if (board[xpos][ypos] == 1 && xpos != x && ypos != y) return true;
   }
+
   return false;
 }
 
-bool solve_queen(int **board, int board_size, int column) {
-  if (column >= board_size) {
-    return true;
-  }
+bool solve_queen(int **board, int size_b, int column) {
+  if (column == size_b) {
+    printf("-\n");
+    printf_board(board, size_b);
+    return true
+  };
 
-  for (int i = 0; i < board_size; i++) {
-    printf_board(board, board_size);
-    printf("\n");
-    if (!has_collision(board, board_size, i, column)) {
+  for (int i = 0; i < size_b; i++) {
+    if (!has_collision(board, size_b, i, column)) {
       board[i][column] = 1;
-
-      if (solve_queen(board, board_size, column + 1)) {
-        return true;
-      }
-
+      solve_queen(board, size_b, column + 1);
+      /* - backtracking - */
       board[i][column] = 0;
     }
   }
@@ -80,9 +69,9 @@ bool solve_queen(int **board, int board_size, int column) {
   return false;
 }
 
-void printf_board(int **board, int board_size) {
-  for (int irow = 0; irow < board_size; irow++) {
-    for (int icol = 0; icol < board_size; icol++) {
+void printf_board(int **board, int size_b) {
+  for (int irow = 0; irow < size_b; irow++) {
+    for (int icol = 0; icol < size_b; icol++) {
       if (board[irow][icol]) {
         printf("♛ ");
       } else {
