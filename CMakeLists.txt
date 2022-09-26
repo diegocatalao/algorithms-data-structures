@@ -10,7 +10,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 add_library(csv SHARED src/commons/csv.c)
 
 # Compile executables
-add_executable(bag_problem src/grokking/bag_problem.c)
+add_executable(knapsack src/grokking/knapsack.c)
 add_executable(biggest_substring src/grokking/biggest_substring.c)
 add_executable(binary_search src/grokking/binary_search.c)
 add_executable(dc_sum src/grokking/dc_sum.c)
