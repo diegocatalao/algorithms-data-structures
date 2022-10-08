@@ -80,14 +80,6 @@ void maze_dealoc(Maze **maze) {
   free((*maze));
 }
 
-bool maze_enable_walk(Maze **maze, int x, int y) {
-  if (x < 0 || x > (*maze)->rows_t) return false;
-  if (y < 0 || y > (*maze)->cols_t) return false;
-  if ((*maze)->board[x][y] == FREE_POINT_CHAR) return true;
-
-  return false;
-}
-
 bool maze_solver(Maze **maze, int x, int y) {
   if (x < 0 || y < 0 || x > (*maze)->rows_t || y > (*maze)->cols_t)
     return false;
@@ -101,8 +93,6 @@ bool maze_solver(Maze **maze, int x, int y) {
     if ((*maze)->board[x][y + 1] == END_POINT_CHAR) return true;
     if ((*maze)->board[x + 1][y] == END_POINT_CHAR) return true;
   }
-
-  maze_printf(maze);
 
   // check right
   if ((*maze)->board[x][y + 1] == FREE_POINT_CHAR) {
@@ -142,8 +132,6 @@ bool maze_solver(Maze **maze, int x, int y) {
     }
   }
 
-  maze_printf(maze);
-
   return false;
 }
 
@@ -151,8 +139,6 @@ void maze_printf(Maze **maze) {
   for (int row = 0; row < (*maze)->rows_t; row++) {
     printf("%s\n", (*maze)->board[row]);
   }
-
-  usleep(62500);
 }
 
 void maze_printf_summary(Maze **maze) {
