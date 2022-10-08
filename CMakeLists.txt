@@ -41,4 +41,6 @@ add_executable(trie src/grokking/three/trie.c)
 
 # Backtracking - Compile executables
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin/backtracking)
+
 add_executable(n-queen src/backtracking/n-queen.c)
+add_executable(maze src/backtracking/maze.c)
