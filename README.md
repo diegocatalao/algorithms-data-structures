@@ -38,6 +38,8 @@ $ ./bin/<some listed program>
 | Array quick sort                              | [quick_sort.c](./src/grokking/quick_sort.c)               | Sort a array with quick sort algorithm. It has an O(n^2) time complexity. It can be somewhat faster than merge sort and about two or three times faster than heapsort                                                           |
 | Fibonacci, Memonacci and Factorial Recursivly | [recursion.c](./src/grokking/recursion.c)                 | Recursive algorithms comparation. The best case is Recursive Memonacci (recursive fibonacci implementation with memory).                                                                                                        |
 | Array selection sort                          | [selection_sort.c](./src/grokking/selection_sort.c)       | Sort a array with selection sort algorithm. It has an O(n2) time complexity, which makes it inefficient on large lists, and generally performs worse than the similar insertion sort.                                           |
+| N-Queen problem                               | [n-queen.c](./src/backtracking/n-queen.c)                 | Finding how many different ways queens can be placed on a chessboard so that none attack each other                                                                                                                             |
+| Maze problem                                  | [maze.c](./src/backtracking/maze.c)                       | Solve a ascii maze from assets file with backtracking.                                                                                                                                                                          |
 
 ### Three problems
 
