@@ -51,14 +51,8 @@ void maze_init(Maze **maze, char *filepath) {
   for (int row = 0; row < (*maze)->rows_t; row++) {
     for (int col = 0; col < (*maze)->cols_t; col++) {
       buffer = getc(fptr);
-      if (buffer != '\n') (*maze)->board[row][col] = buffer;
-    }
-  }
 
-  /* get start and end position */
-  for (int row = 0; row < (*maze)->rows_t; row++) {
-    for (int col = 0; col < (*maze)->cols_t; col++) {
-      switch ((*maze)->board[row][col]) {
+      switch (buffer) {
         case START_POINT_CHAR:
           (*maze)->start_pos[0] = row;
           (*maze)->start_pos[1] = col;
@@ -67,7 +61,12 @@ void maze_init(Maze **maze, char *filepath) {
           (*maze)->end_pos[0] = row;
           (*maze)->end_pos[1] = col;
           break;
+        case '\n':
+          continue;
+          break;
       }
+
+      (*maze)->board[row][col] = buffer;
     }
   }
 

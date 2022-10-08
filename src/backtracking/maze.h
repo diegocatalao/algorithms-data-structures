@@ -12,7 +12,7 @@
 #define START_POINT_CHAR 'S'
 #define END_POINT_CHAR 'E'
 #define FREE_POINT_CHAR ' '
-#define PLAYER_POINT_CHAR '$'
+#define PLAYER_POINT_CHAR '*'
 
 typedef int bool;
 
