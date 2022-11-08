@@ -1,4 +1,4 @@
-#include "dc_sum.h"
+#include "sum.h"
 
 int main(int argc, char *argv) {
   int array[] = {9, 2, 5, 3, 0, 5, 7, 10, 1, 7};
