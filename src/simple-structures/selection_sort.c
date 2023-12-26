@@ -1,6 +1,6 @@
 #include "selection_sort.h"
 
-int main(int argc, char *argv) {
+int main(int argc, char **argv) {
   int array[] = {9, 2, 5, 3, 0, 5, 7, 10, 1, 7};
   int size = sizeof(array) / sizeof(array[0]);
 
