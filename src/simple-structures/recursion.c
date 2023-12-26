@@ -18,6 +18,8 @@ INT64 Memo_insertElement(int n, INT64 value, Memory **memo) {
 
     return value;
   }
+
+  return 0;
 }
 
 INT64 Memo_getElement(int n, Memory **memo) {
@@ -27,9 +29,9 @@ INT64 Memo_getElement(int n, Memory **memo) {
     } else {
       Memo_getElement(n, &((*memo)->next));
     }
-  } else {
-    return -1;
   }
+
+  return -1;
 }
 
 void Memo_clear(Memory **memo) {
@@ -63,7 +65,7 @@ INT64 memonacci(int n, Memory **memo) {
   return Memo_insertElement(n, result, memo);
 }
 
-int main(int argc, char *argv) {
+int main(int argc, char **argv) {
   Memory *memory = NULL;
 
   printf("Factorial implementation (bad case):\n");

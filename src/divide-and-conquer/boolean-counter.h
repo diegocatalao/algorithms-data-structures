@@ -8,6 +8,6 @@
 
 typedef unsigned int bool;
 
-int boolean_counter(int *array, bool key, int inf, int sup);
+int boolean_counter(bool *array, bool key, int inf, int sup);
 
 #endif

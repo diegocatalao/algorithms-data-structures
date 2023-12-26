@@ -8,7 +8,7 @@
 
 #include "./binary_search.h"
 
-int main(int argc, char *argv) {
+int main(int argc, char **argv) {
   int *vector;
   int vector_size = 0;
   int random_number = 0;

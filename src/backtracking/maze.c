@@ -34,7 +34,7 @@ void maze_init(Maze **maze, char *filepath) {
   strcpy((*maze)->filepath, filepath);
 
   /* count number of rows and number of columns */
-  for (buffer; buffer != EOF; buffer = getc(fptr)) {
+  for (buffer = buffer; buffer != EOF; buffer = getc(fptr)) {
     if (buffer == '\n') (*maze)->rows_t++;
     if ((*maze)->rows_t == 0) (*maze)->cols_t++;
   }

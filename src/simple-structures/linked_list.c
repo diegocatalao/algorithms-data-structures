@@ -1,6 +1,6 @@
 #include "linked_list.h"
 
-int main(int argc, char *argv) {
+int main(int argc, char **argv) {
   Vector *vector = NULL;
 
   init_Vector(&vector);

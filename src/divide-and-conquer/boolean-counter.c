@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
   return 0;
 }
 
-int boolean_counter(int *array, bool key, int inf, int sup) {
+int boolean_counter(bool *array, bool key, int inf, int sup) {
   if (sup - inf == 1) {
     printf("Saída: %d\n", array[inf]);
     return array[inf] == key ? 1 : 0;

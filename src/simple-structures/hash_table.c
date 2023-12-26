@@ -1,13 +1,13 @@
 #include "./hash_table.h"
 
-int main(int argc, char *argv) {
+int main(int argc, char **argv) {
   Data *hash_table[MAX_TABLE_SIZE];
   int hashpos = 0;
   char hash_buffer_c[MAX_KEYWORD_INPUT];
 
   init_hash_table(hash_table);
 
-  while (hash_buffer_c != "\\q") {
+  while (strcmp(hash_buffer_c, "\\q")) {
     scanf("%s", hash_buffer_c);
     hashpos = hashc(hash_buffer_c);
     insert_hash_table(hash_table, hashpos, hash_buffer_c);

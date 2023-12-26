@@ -4,6 +4,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_KEYWORD_INPUT 50
 #define MAX_TABLE_SIZE 20
